@@ -1,4 +1,15 @@
-#root {
-  margin: 0 auto;
+* {
+  margin: 0px;
+  background-color: var(--backgroud-color);
 }
 
+:root {
+  --backgroud-color: #0e1111;
+  --selector-color: #8F00FF;
+  --chat-color: #303234;
+  --text-color: #d7eddb;
+  --font-family: "Montserrat", sans-serif;
+  --font-weight: 400;
+  --font-style: normal;
+  --font-size: medium;
+}
