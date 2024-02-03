@@ -1,6 +1,7 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Chatroom from "./Pages/Chatroom"
 import Nopage from "./Pages/Nopage"
+import Signin from "./Pages/Signin"
 import './App.css'
 
 function App() {
@@ -9,10 +10,10 @@ function App() {
     <>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route  path="/chatroom" element={ <Chatroom/>}/>
+          <Route path="/" element={<Signin />}/>
+          <Route  path="chatroom" element={ <Chatroom/>}/>
           <Route path="*" element={<Nopage />} />
-        </Route>
+  
       </Routes>
     </BrowserRouter>
     </>

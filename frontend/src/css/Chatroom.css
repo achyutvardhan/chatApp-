@@ -1,0 +1,21 @@
+.ext {
+  width: auto;
+  max-height: 700px;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  margin-top: 0.7rem;
+  margin-bottom: 0.7rem;
+}
+.int {
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid white; */
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border-radius: 20px;
+  background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg);
+  background-repeat: repeat;
+  background-blend-mode: overlay;
+  background-size: contain;
+  background-color: var(--background-color);
+  height: 700px;
+}

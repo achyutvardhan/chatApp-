@@ -1,9 +1,7 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 
-export default class Nopage extends PureComponent {
-  render() {
-    return (
-      <div>Error 404</div>
-    )
-  }
+export default function Nopage() {
+  return (
+    <div>Error 404</div>
+  )
 }
