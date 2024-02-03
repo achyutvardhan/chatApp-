@@ -1,0 +1,9 @@
+.int-mes {
+    display: flex;
+    flex-direction: row;
+}
+
+.sec-mes{
+    display: flex;
+    flex-direction: column;
+}

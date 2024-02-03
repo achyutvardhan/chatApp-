@@ -1,0 +1,17 @@
+.ext-name {
+  width: auto;
+  height: auto;
+  margin: 0.5rem;
+}
+.in-name {
+  display: flex;
+  flex-direction: column;
+}
+.profile-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+  margin: 20px;
+}

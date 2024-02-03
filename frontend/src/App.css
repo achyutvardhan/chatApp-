@@ -1,9 +1,12 @@
 * {
   margin: 0px;
-  background-color: var(--outer-color);
   color: white;
+
 }
 
+#root{
+  background-color: var(--outer-color);
+}
 :root {
   --outer-color: #1f2323;
   --background-color : #120e0e;
