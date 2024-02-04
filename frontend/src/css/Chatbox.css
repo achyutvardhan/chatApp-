@@ -1,9 +1,12 @@
 .int-mes {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 2rem;
 }
 
-.sec-mes{
-    display: flex;
-    flex-direction: column;
+.sec-mes {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
 }

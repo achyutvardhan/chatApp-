@@ -1,0 +1,16 @@
+.exthead {
+  margin-top: 20px;
+  width: 100%;
+}
+.inhead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.inhead > p {
+  margin-left: 1rem;
+}
+.line-1 {
+  border: 1px solid white;
+}

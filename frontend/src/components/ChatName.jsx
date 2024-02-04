@@ -9,8 +9,9 @@ export default function ChatName() {
         <div className="in-name">
           <div className="profile-details">
             <Hamburgerstate />
-            Search box
+            <input type="search" name="" id="" placeholder="search here" />
           </div>
+          <div className="line"></div>
           <div className="Message-details">
             <ChatBox />
           </div>

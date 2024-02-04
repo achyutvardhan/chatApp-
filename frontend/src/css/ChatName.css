@@ -1,17 +1,23 @@
 .ext-name {
-  width: auto;
-  height: auto;
+  width: 30%;
   margin: 0.5rem;
+  border-right: 1px solid white ;
+
 }
 .in-name {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 .profile-details {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid white;
-  margin: 20px;
+  margin: 20px 20px 0px 0px;
+}
+
+.line {
+  border: 1px solid white;
+  margin: 20px 0px 20px 0px;
 }

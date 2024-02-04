@@ -12,12 +12,9 @@
   /* border: 1px solid white; */
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 20px;
-  /* background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg);
+  background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg);
   background-repeat: repeat;
   background-blend-mode: overlay;
-  background-size: contain; */
+  background-size: contain;
   background-color: var(--background-color);
-  /* height: 700px; */
-  align-items: center;
-  justify-content: space-around;
 }

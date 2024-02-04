@@ -1,0 +1,27 @@
+.extmess {
+  width: 70%;
+  height: 700px;
+}
+.intmess {
+  display: flex;
+  flex-direction: column;
+}
+.line-1 {
+  margin-top: 1.5rem;
+}
+.message-area {
+  width: 100%;
+}
+
+.inp {
+  width: 100%;
+  height: 100%;
+  height: 30px;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  
+}
+.inp > input {
+  width: 70%;
+}
