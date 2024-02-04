@@ -8,9 +8,10 @@
   align-items: center;
 }
 
+.inhead > img {
+  margin: 0px 0px 0px 10px;
+}
+
 .inhead > p {
   margin-left: 1rem;
-}
-.line-1 {
-  border: 1px solid white;
 }

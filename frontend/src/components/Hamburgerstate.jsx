@@ -9,9 +9,9 @@ export default function Hamburgerstate() {
         toggled={isOpen}
         toggle={setOpen}
         size={20}
-        easing="ease-in"
         hideOutline={true}
         direction="right"
+        color="white"
       />
     </>
   );

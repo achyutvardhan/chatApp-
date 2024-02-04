@@ -1,16 +1,17 @@
 * {
   margin: 0px;
+  padding: 0%;
   color: white;
-  /* background: var(--outer-color); */
+  /* background: transparent; */
 }
 
-#root{
+#root {
   background-color: var(--outer-color);
 }
 :root {
   --outer-color: #1f2323;
-  --background-color : #120e0e;
-  --selector-color: #8F00FF;
+  --background-color: #120e0e;
+  --selector-color: #8f00ff;
   --chat-color: #303234;
   --text-color: #d7eddb;
   --font-family: "Montserrat", sans-serif;

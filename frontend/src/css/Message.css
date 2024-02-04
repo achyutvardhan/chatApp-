@@ -1,27 +1,45 @@
 .extmess {
   width: 70%;
-  height: 700px;
+  height: auto;
 }
 .intmess {
   display: flex;
   flex-direction: column;
 }
 .line-1 {
-  margin-top: 1.5rem;
+  margin-top: 1.6rem;
+}
+.line-1 {
+  border: 1px solid white;
 }
 .message-area {
   width: 100%;
+  height: 633px;
 }
 
 .inp {
-  width: 100%;
-  height: 100%;
-  height: 30px;
   background-color: white;
   justify-content: center;
   align-items: center;
-  
+  position: relative;
+  top: 575px;
+  right: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0px 0px 0px 10px;
+  display: flex;
+}
+.inp > button {
+  background: transparent;
+  border: none;
+  width: auto;
+}
+.inp > button > img {
+  width: 30px;
 }
 .inp > input {
-  width: 70%;
+  width: 90%;
+  color: black;
+  border: none;
+  padding: 9px;
 }
