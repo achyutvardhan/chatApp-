@@ -1,17 +1,19 @@
 import {BrowserRouter, Routes, Route} from "react-router-dom"
 import Chatroom from "./Pages/Chatroom"
 import Nopage from "./Pages/Nopage"
-import Signin from "./Pages/Signin"
+import Login from "./Pages/Login"
 import './App.css'
-
+import Privateroute from "./Pages/Privateroute"
 function App() {
 
   return (
     <>
       <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Signin />}/>
-          <Route  path="chatroom" element={ <Chatroom/>}/>
+           <Route element={<Privateroute/>} >
+          <Route  path="/" element={ <Chatroom/>} exact/>
+           </Route>
+          <Route  path="/login" element={ <Login/>}/>
           <Route path="*" element={<Nopage />} />
   
       </Routes>

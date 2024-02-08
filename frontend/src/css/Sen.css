@@ -1,0 +1,25 @@
+.sndext {
+  width: 100%;
+  height: max-content;
+  border: none;
+}
+.sndint {
+  float: right;
+  margin: 2%;
+  padding: 1%;
+  border: 1px solid var(--selector-color);
+    background-color: var(--selector-color);
+  border-radius: 10% 10% 0% 10%;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+}
+.snddtl {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10%;
+  justify-content: end;
+}
+.msgphas {
+  margin-left: 5%;
+}

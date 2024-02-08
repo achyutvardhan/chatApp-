@@ -5,8 +5,9 @@
   /* background: transparent; */
 }
 
-#root {
+body{
   background-color: var(--outer-color);
+  padding: 5%,5%,5%,5%;
 }
 :root {
   --outer-color: #1f2323;

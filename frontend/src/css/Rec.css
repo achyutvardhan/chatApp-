@@ -1,0 +1,30 @@
+.recext
+{
+    width: 100%;
+    height: max-content;
+    border: none;
+    /* border-radius: 7% 7% 7% 1%; */
+    /* background-color: whitesmoke; */
+  
+}
+.recint{
+    margin:2% ;
+    padding: 1%;
+    width: max-content;
+    border: 1px solid var(--chat-color);
+    background-color: var(--chat-color);
+    border-radius: 7% 7% 7% 1%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.recdtl{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10%;
+    justify-content: end;
+}
+.msgphase{
+    margin-left:5%;
+}

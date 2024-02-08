@@ -14,20 +14,26 @@
 }
 .message-area {
   width: 100%;
-  height: 633px;
+  height: 620px;
+  position: relative;
 }
-
+.messages{
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+}
 .inp {
+  width: 94%;
   background-color: white;
   justify-content: center;
   align-items: center;
-  position: relative;
-  top: 575px;
-  right: 5px;
+  position: absolute;
+  bottom: 0px;
   padding: 10px;
   border-radius: 10px;
   margin: 0px 0px 0px 10px;
   display: flex;
+  justify-content: space-between;
 }
 .inp > button {
   background: transparent;
