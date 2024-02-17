@@ -2,12 +2,15 @@
   margin: 0px;
   padding: 0%;
   color: white;
+  font-family: var(--font-family);
   /* background: transparent; */
 }
 
-body{
+body {
   background-color: var(--outer-color);
-  padding: 5%,5%,5%,5%;
+  padding: 10%, 10%, 10%, 10%;
+  justify-items: center;
+  align-items: end;
 }
 :root {
   --outer-color: #1f2323;

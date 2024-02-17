@@ -4,6 +4,7 @@ import Nopage from "./Pages/Nopage"
 import Login from "./Pages/Login"
 import './App.css'
 import Privateroute from "./Pages/Privateroute"
+import Register from "./Pages/Register"
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route  path="/" element={ <Chatroom/>} exact/>
            </Route>
           <Route  path="/login" element={ <Login/>}/>
+          <Route  path="/register" element={ <Register/>}/>
           <Route path="*" element={<Nopage />} />
   
       </Routes>

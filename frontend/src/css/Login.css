@@ -1,64 +1,66 @@
 .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    
-    min-height: 100vh;
-    background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg),linear-gradient(to right, rgb(153, 53, 125), rgb(30, 6, 83));
-    background-blend-mode:overlay;
-    background-element: cover;
-    padding: 20px;
-  }
-  h1 {
-    
-    -webkit-text-fill-color: black;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    display: flex;
-    flex-direction: column;
-    
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  label {
-    margin-bottom: 5px;
-    -webkit-text-fill-color: black;
-    font-weight: bold;
-  }
-  
-  input[type="email"], input[type="password"] {
-    -webkit-text-fill-color: black;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    margin-bottom: 10px;
-  }
-  
-  button[type="submit"] {
-    background-color: #00d1ff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    -webkit-text-fill-color: black;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  button[type="submit"]:hover {
-    background-color: #9c1de7;
-  }
-  
-  .error-message {
-    color: #e60626;
-    font-size: 20px;
-    
-    margin-bottom: 10px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg),
+    linear-gradient(to right, rgb(153, 53, 125), rgb(30, 6, 83));
+  background-blend-mode: overlay;
+  background-element: cover;
+  padding: 20px;
+}
+h1 {
+  -webkit-text-fill-color: var(--chat-color);
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  margin-bottom: 5px;
+  -webkit-text-fill-color: var(--chat-color);
+  font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+  -webkit-text-fill-color: black;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+
+button[type="submit"] {
+  background-color: #00d1ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  -webkit-text-fill-color: black;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #9c1de7;
+}
+
+.error-message {
+  color: #e60626;
+  font-size: 20px;
+
+  margin-bottom: 10px;
+}

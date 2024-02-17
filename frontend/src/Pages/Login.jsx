@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 //css
-import "../css/Login.css"
+import "../css/Login.css";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
@@ -14,21 +14,20 @@ const Login = () => {
 
     // Validation (you can add more complex validation as needed)
     if (!email.trim() || !password.trim()) {
-      setErrorMessage('Please enter your email and password.');
+      setErrorMessage("Please enter your email and password.");
       return;
     }
 
     // Simulated authentication (replace with your actual authentication logic)
-    const testEmail = 'test@example.com';
-    const testPassword = 'test123';
+    const testEmail = "test@example.com";
+    const testPassword = "test123";
 
     if (email === testEmail && password === testPassword) {
       // Successful login (redirect, store token, etc.)
-      
-      navigate('/');
-      
+
+      navigate("/");
     } else {
-      setErrorMessage('Invalid email or password.');
+      setErrorMessage("Invalid email or password.");
     }
   };
 
@@ -54,6 +53,7 @@ const Login = () => {
           placeholder="Enter your password"
           required
         />
+        <Link to="/register" style={{marginBottom : "2%"}} >register here</Link>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit">Login</button>
       </form>

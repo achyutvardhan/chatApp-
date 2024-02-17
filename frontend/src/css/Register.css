@@ -1,0 +1,42 @@
+.reg-ext-cont {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg),
+    linear-gradient(to right, rgb(153, 53, 125), rgb(30, 6, 83));
+  background-blend-mode: overlay;
+  background-element: cover;
+}
+
+.reg-int-cont {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"] {
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 2px;
+  border: none;
+  color: black;
+  opacity: 0.8;
+}
+h1 {
+  -webkit-text-fill-color: var(--chat-color);
+}
+label {
+  -webkit-text-fill-color: var(--chat-color);
+}
+
+.error-message {
+    color: #e60626;
+    font-size: 20px;
+  
+    margin-bottom: 10px;
+  }
+  

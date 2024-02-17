@@ -1,19 +1,23 @@
 .ext {
   width: auto;
+  min-height: 100vh;
   margin-left: 10rem;
   margin-right: 10rem;
   background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .int {
+  width: 100%;
   display: flex;
   flex-direction: row;
   /* border: 1px solid white; */
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 20px;
-  background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg),linear-gradient(to bottom, rgb(115, 33, 59), rgb(30, 61, 192));
-  ;
+  background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg),
+    linear-gradient(to bottom, rgb(115, 33, 59), rgb(30, 61, 192));
   background-repeat: repeat;
   background-blend-mode: overlay;
   background-size: contain;
-  
 }
