@@ -8,7 +8,7 @@
   background-image: url(../assets/gray_line_drawings_of_organic_shapes_background.jpg),
     linear-gradient(to right, rgb(153, 53, 125), rgb(30, 6, 83));
   background-blend-mode: overlay;
-  background-element: cover;
+  /* background-element: cover; */
   padding: 20px;
 }
 h1 {

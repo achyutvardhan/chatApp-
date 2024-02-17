@@ -19,7 +19,7 @@ export default function Register() {
     console.log(details);
 
     //post request
-    if(details.password === details.confirm)
+    if(details.password === details.confirm&& details.password!= ""&& details.confirm!="")
     navigate("/login");
 else 
 Seterrormessage("password doesn't match")

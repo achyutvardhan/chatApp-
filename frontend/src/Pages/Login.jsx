@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../AuthContext";
 //css
 import "../css/Login.css";
 
 const Login = () => {
+  const {setUser, setIsAuthenticated} = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,10 +24,17 @@ const Login = () => {
     // Simulated authentication (replace with your actual authentication logic)
     const testEmail = "test@example.com";
     const testPassword = "test123";
-
+    const testuser = "testUser";
+    const token = "token"
+    
     if (email === testEmail && password === testPassword) {
       // Successful login (redirect, store token, etc.)
-
+      setUser({
+        name : {testuser},
+        email : {testEmail},
+        token : {token}
+      })
+      setIsAuthenticated(true);
       navigate("/");
     } else {
       setErrorMessage("Invalid email or password.");
