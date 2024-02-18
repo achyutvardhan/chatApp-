@@ -40,6 +40,7 @@ Seterrormessage("password doesn't match")
               onChange={(e) => {
                 SetDetails((eve) => ({ ...eve, email: e.target.value }));
               }}
+              required
             />
             <label htmlFor="user-name">User name : </label>
             <input
@@ -51,6 +52,7 @@ Seterrormessage("password doesn't match")
               onChange={(e) => {
                 SetDetails((eve) => ({ ...eve, username: e.target.value }));
               }}
+              required
             />
             <label htmlFor="email">Password : </label>
             <input
@@ -62,6 +64,7 @@ Seterrormessage("password doesn't match")
               onChange={(e) => {
                 SetDetails((eve) => ({ ...eve, password: e.target.value }));
               }}
+              required
             />
             <label htmlFor="email">Confirm password : </label>
             <input
@@ -73,6 +76,7 @@ Seterrormessage("password doesn't match")
               onChange={(e) => {
                 SetDetails((eve) => ({ ...eve, confirm: e.target.value }));
               }}
+              required
             />
             {errormessage && <p className="error-message">{errormessage}</p>}
             <button type="submit">submit</button>

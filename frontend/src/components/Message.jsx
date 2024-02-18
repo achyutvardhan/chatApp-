@@ -5,6 +5,7 @@ import Sen from "./Sen.jsx";
 import Rec from "./Rec.jsx";
 import "../css/Message.css";
 export default function Message() {
+  
   return (
     <>
       <div className="extmess">

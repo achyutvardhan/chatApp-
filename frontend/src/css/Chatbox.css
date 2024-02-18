@@ -1,12 +1,25 @@
 .int-mes {
+  width: 90%;
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-right: 2rem;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+
 }
 
 .sec-mes {
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
+  /* cursor: pointer; */
+}
+
+.int-mes:hover{
+  /* border: 1px solid var(--selector-color); */
+  background-color: var(--selector-color);
 }
