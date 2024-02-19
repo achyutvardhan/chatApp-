@@ -16,7 +16,7 @@ export default function Rec({ data }) {
           <div className="recmsg"> {data.message}</div>
           <div className="recdtl">
             <div className="rectme">{hours}:{minutes}</div>
-            <div className="msgphase">//</div>
+            {/* <div className="msgphase">//</div> */}
           </div>
         </div>
       </div>
