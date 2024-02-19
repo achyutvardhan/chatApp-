@@ -2,6 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Register.css";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Register() {
   const navigate = useNavigate();
   const [errormessage, Seterrormessage] = useState("");
@@ -19,11 +22,15 @@ export default function Register() {
     console.log(details);
 
     //post request
-    if(details.password === details.confirm&& details.password!= ""&& details.confirm!="")
-    navigate("/login");
-else 
-Seterrormessage("password doesn't match")
-
+    if(details.password === details.confirm && details.password != "" && details.confirm != "") {
+      toast.success("Successfully registered! Now login...");
+      setTimeout(() => {
+        navigate("/login");
+      }, 1000); 
+      toast.success("Successfully registered! Now login...");
+    } else {
+      Seterrormessage("Password doesn't match");
+    }
   };
   return (
     <>

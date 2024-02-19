@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
 //css
@@ -22,8 +25,8 @@ const Login = () => {
     }
 
     // Simulated authentication (replace with your actual authentication logic)
-    const testEmail = "test@example.com";
-    const testPassword = "test123";
+    const testEmail = "t@e.com";
+    const testPassword = "t123";
     const testuser = "testUser";
     const token = "token"
     
@@ -35,14 +38,20 @@ const Login = () => {
         token : {token}
       })
       setIsAuthenticated(true);
-      navigate("/");
+      // navigate("/");
+      toast.success("You have successfully logged in!", {
+      });
+      setTimeout(() => {
+        navigate("/");
+      }, 1000);
     } else {
-      setErrorMessage("Invalid email or password.");
+      toast.error("Invalid email or password.");
     }
   };
 
   return (
     <div className="login-container">
+        <ToastContainer/>
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>

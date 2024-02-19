@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import HamMenu from "./hamMenu";
+import HamMenu from "../components/HamMenu.jsx";
 import { Squash as Hamburger } from "hamburger-react";
 
 export default function Hamburgerstate() {
