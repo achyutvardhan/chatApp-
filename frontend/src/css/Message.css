@@ -17,10 +17,11 @@
   height: 620px;
   position: relative;
 }
-.messages{
+.messages {
   /* position: relative; */
   display: flex;
   flex-direction: column;
+  /* overflow-y: scroll; */
 }
 .inp {
   width: 94%;
