@@ -9,6 +9,7 @@ import ProfileSetting from "./ProfileSetting";
 import { toast } from 'react-toastify'; // import toast
 
 export default function HamMenu() {
+  const [setting, Setsetting] = useState(false);
     const {setIsAuthenticated} = useContext(AuthContext);
     const logoutUser = ()=>{
         setIsAuthenticated(false)
