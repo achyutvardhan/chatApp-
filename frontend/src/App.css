@@ -12,6 +12,7 @@ body {
   padding: 10%, 10%, 10%, 10%;
   justify-items: center;
   align-items: end;
+  overflow: hidden;
 }
 :root {
   --outer-color: #1f2323;

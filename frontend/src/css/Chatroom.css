@@ -12,6 +12,7 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  /* height: 99vh; */
   /* border: 1px solid white; */
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   border-radius: 20px;

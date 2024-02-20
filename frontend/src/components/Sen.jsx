@@ -1,17 +1,23 @@
-import React from 'react'
-import '../css/Sen.css'
-export default function Sen() {
+import React from "react";
+import "../css/Sen.css";
+export default function Sen({ data }) {
+  // console.log(data);
+
+  let date = new Date(data.timestamp);
+
+let hours = date.getHours();
+let minutes = date.getMinutes();
   return (
     <>
-    <div className="sndext">
+      <div className="sndext">
         <div className="sndint">
-            <div className="sndmsg">hello ! my name is achyut</div>
-            <div className="snddtl">
-                <div className="sndtme">12:00</div>
-                <div className="msgphas">//</div>
-            </div>
+          <div className="sndmsg">{data.message}</div>
+          <div className="snddtl">
+            <div className="sndtme">{hours }:{ minutes}</div>
+            {/* <div className="msgphas">//</div> */}
+          </div>
         </div>
-    </div>
+      </div>
     </>
-  )
+  );
 }
