@@ -1,10 +1,10 @@
 .set-ext {
   position: absolute;
   width: auto;
-  /* height: 100%; */
+  height: auto;
   z-index: 1;
-  top: 20%;
-  right: 30%;
+  bottom: 20%;
+  right: 40%;
   /* border: none; */
   padding: 10px;
   background: rgba(255, 255, 255, 0.3);
@@ -13,6 +13,10 @@
   -webkit-backdrop-filter: blur(17px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.crossbut {
+  margin-left: 90%;
+  cursor: pointer;
 }
 .set-in {
   /* position: absolute; */
@@ -42,4 +46,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+#full-name {
+  margin-bottom: 10px;
 }

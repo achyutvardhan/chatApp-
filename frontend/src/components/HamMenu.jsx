@@ -17,6 +17,7 @@ export default function HamMenu() {
     Setsetting(!setting);
     console.log("setting");
   };
+
   return (
     <>
       <div className="menu-ext">
@@ -31,7 +32,7 @@ export default function HamMenu() {
           </div>
         </div>
       </div>
-      {setting && <ProfileSetting />}
+      {setting && <ProfileSetting  handle= {profileSetting}/>}
     </>
   );
 }
