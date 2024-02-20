@@ -7,11 +7,13 @@ import "./App.css";
 import Privateroute from "./Pages/Privateroute";
 import Register from "./Pages/Register";
 import { AuthProvider } from "./AuthContext";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <>
       <AuthProvider>
+        <ToastContainer />
         <BrowserRouter>
           <Routes>
             <Route element={<Privateroute />}>

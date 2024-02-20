@@ -1,12 +1,13 @@
 * {
   margin: 0px;
   padding: 0%;
-  color: white;
+  /* color: white; */
   font-family: var(--font-family);
   /* background: transparent; */
 }
 
 body {
+  color:whitesmoke;
   background-color: var(--outer-color);
   padding: 10%, 10%, 10%, 10%;
   justify-items: center;
