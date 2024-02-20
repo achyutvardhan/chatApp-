@@ -2,27 +2,32 @@
   "users": [
     {
       "id": 1,
-      "name": "Alice",
+      "name": "testUser",
+      "email" : "testUser@example.com",
       "avatar": "alice.jpg"
     },
     {
       "id": 2,
       "name": "Bob",
+      "email" : "bob@example.com",
       "avatar": "bob.jpg"
     },
     {
       "id": 3,
       "name": "Charlie",
+      "email" : "charlie@example.com",
       "avatar": "charlie.jpg"
     },
     {
       "id": 4,
       "name": "David",
+      "email" : "david@example.com",
       "avatar": "david.jpg"
     },
     {
       "id": 5,
       "name": "Eve",
+      "email" : "eve@example.com",
       "avatar": "eve.jpg"
     }
   ],
