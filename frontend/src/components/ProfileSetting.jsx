@@ -10,6 +10,11 @@ export default function ProfileSetting({handle}) {
   const handleClick = ()=>{
     handle();
   }
+
+  const SubmitRespo = (e)=>{
+      e.preventDefault();
+      console.log("submitted")
+  }
   return (
     <>
       <div className="set-ext">
@@ -21,7 +26,7 @@ export default function ProfileSetting({handle}) {
             <input type="file" name="" id="" />
           </div>
           <div className="form-div">
-            <form action="" className="form1">
+            <form action="" className="form1" onSubmit={SubmitRespo}>
               <label htmlFor="">Name</label>
               <input
                 type="text"
