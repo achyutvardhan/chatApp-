@@ -6,24 +6,29 @@ require("dotenv").config();
 
 const loginSchema = z.object({
   email: z.string().email({ message: "Invalid email address" }),
-  password: z.string({ messsage: "Invalid password " }),
+  password: z.string(),
 });
 
 const login = async (req, res) => {
-  const result = loginSchema.safeParse({email : req.body.email , password : req.body.password});
-  if(! result.success)
-  {
-    return res.status(400).json({message : result.success});
-  }
 
-  try{
-    const {email , passsword }  = req.body;
-    
 
+  console.log("hello")
+  const result = loginSchema.safeParse({
+    email: req.body.email,
+    password: req.body.password,
+  });
+  if (!result.success) {
+    return res.status(400).json({ message: result.success });
   }
-  catch(error){
-     console.log('error Login', error);
-     res.status(500).json({message : 'Internal Server Error'});
+  try {
+    const { email, password } = req.body;
+
+    console.log("email", email);
+    console.log("pass", password);
+    res.status(200).json({message : "got details"});
+  } catch (error) {
+    console.log("error Login", error);
+    res.status(500).json({ message: "Internal Server Error" });
   }
 };
 
