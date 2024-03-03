@@ -2,8 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Register.css";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -13,20 +13,25 @@ export default function Register() {
     password: "",
     confirm: "",
     username: "",
+    phoneno: "",
   });
 
-  const { email, username, password, confirm } = details;
+  const { email, username, password, confirm , phoneno} = details;
 
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(details);
 
     //post request
-    if(details.password === details.confirm && details.password != "" && details.confirm != "") {
+    if (
+      details.password === details.confirm &&
+      details.password != "" &&
+      details.confirm != ""
+    ) {
       toast.success("Successfully registered! Now login...");
       setTimeout(() => {
         navigate("/login");
-      }, 1000); 
+      }, 1000);
       toast.success("Successfully registered! Now login...");
     } else {
       Seterrormessage("Password doesn't match");
@@ -49,6 +54,11 @@ export default function Register() {
               }}
               required
             />
+            <label htmlFor="Phone-no">Phone no : </label>
+            <input type="number" name="phoneno" id="phoneno" placeholder="123456789" value={phoneno}  onChange={(e) => {
+                SetDetails((eve) => ({ ...eve, phoneno: e.target.value }));
+              }}
+              required />
             <label htmlFor="user-name">User name : </label>
             <input
               type="text"
@@ -61,7 +71,7 @@ export default function Register() {
               }}
               required
             />
-            <label htmlFor="email">Password : </label>
+            <label htmlFor="Pass">Password : </label>
             <input
               type="password"
               name="password"
@@ -73,7 +83,7 @@ export default function Register() {
               }}
               required
             />
-            <label htmlFor="email">Confirm password : </label>
+            <label htmlFor="conPass">Confirm password : </label>
             <input
               type="password"
               name="conpassword"
@@ -85,6 +95,7 @@ export default function Register() {
               }}
               required
             />
+
             {errormessage && <p className="error-message">{errormessage}</p>}
             <button type="submit">submit</button>
           </form>

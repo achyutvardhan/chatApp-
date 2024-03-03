@@ -17,10 +17,10 @@ const userSchema = new mongoose.Schema({
       unique: true,
       trim: true
     },
-    role:{
-      type: String,
-      default : "user"
-    },
+    // role:{
+    //   type: String,
+    //   default : "user"
+    // },
     token:{
       type:String
     }
@@ -56,7 +56,7 @@ const userSchema = new mongoose.Schema({
       required: true,
       unique: true
     },
-    full_name: {
+    user_name: {
       type: String,
       required: true
     },

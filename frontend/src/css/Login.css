@@ -37,7 +37,7 @@ label {
 }
 
 input[type="email"],
-input[type="password"] {
+input[type="password"],input[type="number"] {
   -webkit-text-fill-color: black;
   padding: 10px;
   border: 1px solid #ccc;
