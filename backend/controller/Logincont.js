@@ -1,35 +1,50 @@
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
-const { User } = require("../database/db");
-const { z } = require("zod");
-require("dotenv").config();
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
+const {User} = require('../database/db')
+const {z} = require('zod');
+require('dotenv').config();
 
-const loginSchema = z.object({
-  email: z.string().email({ message: "Invalid email address" }),
-  password: z.string(),
-});
+const LoginSchema = z.object({
+    email : z.string().email(),
+    password : z.string()
+})
+const login = async(req,res)=>{
+    try{
 
-const login = async (req, res) => {
+        const {email , password} = req.body;
+        const result = LoginSchema.safeParse({
+            email : email,
+            password : password
+        })
+        if(!result.success)
+        {
+            return res.status(400).json(result)
+        }
+        const foundUser = await User.findOne({email});
+        if(!foundUser)
+        {
+            return res.status(404).json({message : 'User not found'});
+        }
 
+        const confPass = await bcrypt.compare(password , foundUser.password);
+        if(!confPass)
+        return  res.status(404).json({message : 'Invalid Password'});
+        console.log(result)
 
-  console.log("hello")
-  const result = loginSchema.safeParse({
-    email: req.body.email,
-    password: req.body.password,
-  });
-  if (!result.success) {
-    return res.status(400).json({ message: result.success });
-  }
-  try {
-    const { email, password } = req.body;
+        const token  =  generateToken(foundUser);
+        foundUser.token = token;
+        await foundUser.save();
+        res.status(200).json({token});
+    }
+    catch(error){
+         console.log('Error Login' , error);
+         res.status(500).json({message : 'Internal server error'})
+    }
+}
 
-    console.log("email", email);
-    console.log("pass", password);
-    res.status(200).json({message : "got details"});
-  } catch (error) {
-    console.log("error Login", error);
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-};
+const generateToken = (user)=>{
+    const token = jwt.sign({userId: user._id}, process.env.TOKEN_SECRET_KEY ,{expiresIn : '1h'});
+    return token;
+}
 
 exports.login = login;
