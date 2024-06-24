@@ -20,9 +20,9 @@ db.on('error', (error) => {
 //   })
 
 // *************************************************LOGIN*************************************************************
-app.use('/', require('./routers/Login/loginR'))
+app.use('/login', require('./routers/Login/loginR'))
 // *************************************************REGISTER*************************************************************
-app.use('/',require('./routers/Register/registerR'))
+app.use('/signup',require('./routers/Register/registerR'))
 
   app.get('*',(req,res)=>{
     res.send("page doesn't exist");
