@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 const { User , Message } = require('../database/db');
-const multer = require('m')
 
 const sendMessage = async(req,res)=>{
      const token = req.headers.authorization;

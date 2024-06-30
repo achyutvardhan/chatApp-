@@ -16,9 +16,9 @@ export default function Register() {
     phoneno: "",
   });
 
-  const { email, username, password, confirm , phoneno} = details;
+  const { email, username, password, confirm, phoneno } = details;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(details);
 
@@ -28,11 +28,30 @@ export default function Register() {
       details.password != "" &&
       details.confirm != ""
     ) {
-      toast.success("Successfully registered! Now login...");
-      setTimeout(() => {
-        navigate("/login");
-      }, 1000);
-      toast.success("Successfully registered! Now login...");
+      const result = await fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: details.email,
+          username: details.username,
+          password:  details.confirm,
+          phoneno: Number(details.phoneno),
+        }),
+      });
+      const response = await result.json();
+      console.log(response);
+      if (result.status == 201) {
+        toast.success("Successfully registered! Now login...");
+        setTimeout(() => {
+          navigate("/login");
+        }, 1000);
+      } else {
+        for(let i=0;i<response.message.length;i++){
+          toast.error(response.message[i]);
+        }
+      }
     } else {
       Seterrormessage("Password doesn't match");
     }
@@ -55,10 +74,17 @@ export default function Register() {
               required
             />
             <label htmlFor="Phone-no">Phone no : </label>
-            <input type="number" name="phoneno" id="phoneno" placeholder="123456789" value={phoneno}  onChange={(e) => {
+            <input
+              type="number"
+              name="phoneno"
+              id="phoneno"
+              placeholder="123456789"
+              value={phoneno}
+              onChange={(e) => {
                 SetDetails((eve) => ({ ...eve, phoneno: e.target.value }));
               }}
-              required />
+              required
+            />
             <label htmlFor="user-name">User name : </label>
             <input
               type="text"

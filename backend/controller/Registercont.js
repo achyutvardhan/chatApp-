@@ -8,7 +8,7 @@ const RegisterSchema = z.object({
     phoneno : z.number().min(10),
     password : z.string().min(8),
     email : z.string().email(),
-    gender : z.enum(["Male","Female","Other"])
+    // gender : z.enum(["Male","Female","Other"])
 })
 
 const register = async(req,res)=>{
@@ -21,10 +21,10 @@ const register = async(req,res)=>{
             phoneno : phoneno,
             password : password,
             email : email ,
-             gender : gender
+            //  gender : gender
         })
         if(!result.success)
-        return res.status(400).json(result);
+        return res.status(400).json({message : result.error.issues.map((err)=>err.message)});
         
         const foundUser = await User.findOne({email});
         if(foundUser)
@@ -44,7 +44,7 @@ const register = async(req,res)=>{
         const userdetail = new UserDetails({
             user_id : user._id,
             user_name : username,
-            gender : gender,
+            // gender : gender,
             phone_no : phoneno,
         })
     

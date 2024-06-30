@@ -2,8 +2,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
+const socket = require('socket.io');
 app.use(cors());
 app.use(express.json())
+app.use(cookieParser())
 require('dotenv').config();
 
 
@@ -24,9 +27,34 @@ app.use('/login', require('./routers/Login/loginR'))
 // *************************************************REGISTER*************************************************************
 app.use('/signup',require('./routers/Register/registerR'))
 
-  app.get('*',(req,res)=>{
+app.use('/auth', require('./routers/Auth/protectedR'))
+app.get('*',(req,res)=>{
     res.send("page doesn't exist");
   })
-  app.listen(3000,()=>{
+const server = app.listen(3000,()=>{
     console.log("listening to port 3000")
   })
+
+
+ const io = socket(server, {
+    cors: {
+      origin: "http://localhost:3000",
+      credentials: true
+    }
+  });
+
+global.onlineUsers = new Map();
+
+io.on("connection", (socket) => {
+  console.log(socket.id);
+    global.chatSocket = socket;
+    socket.on("add-user", (userId) => {
+      onlineUsers.set(userId, socket.id);
+    });
+    socket.on("send-msg", (data) => {
+      const sendUserSocket = onlineUsers.get(data.to);
+      if (sendUserSocket) {
+        io.to(sendUserSocket).emit("msg-recieve", data.message);
+      }
+    });
+  });

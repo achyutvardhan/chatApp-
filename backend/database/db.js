@@ -61,11 +61,11 @@ const userDetailsSchema = new mongoose.Schema({
     required: true,
   },
 
-  gender: {
-    type: String,
-    enum: ["Male", "Female", "Other"],
-    required: true,
-  },
+  // gender: {
+  //   type: String,
+  //   enum: ["Male", "Female", "Other"],
+  //   required: true,
+  // },
   phone_no: {
     type: Number,
     required: true,

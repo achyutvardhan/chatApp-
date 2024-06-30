@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast, ToastContainer } from "react-toastify";
+import { jwtDecode } from "jwt-decode";
+import Cookies from "js-cookie"
+import "react-toastify/dist/ReactToastify.css";
 
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
@@ -9,13 +11,13 @@ import { AuthContext } from "../AuthContext";
 import "../css/Login.css";
 
 const Login = () => {
-  const {setUser, setIsAuthenticated} = useContext(AuthContext);
+  const { setUser, setIsAuthenticated } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Validation (you can add more complex validation as needed)
@@ -24,23 +26,30 @@ const Login = () => {
       return;
     }
 
-    // Simulated authentication (replace with your actual authentication logic)
-    const testEmail = "t@e.com";
-    const testPassword = "t123";
-    const testuser = "testUser";
-    const token = "token"
-    
-    if (email === testEmail && password === testPassword) {
+    const res = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    if (res.status == 200) {
       // Successful login (redirect, store token, etc.)
+      const data = await res.json();
+      const decode = jwtDecode(data.token);
+      console.log(decode);
       setUser({
-        name : {testuser},
-        email : {testEmail},
-        token : {token}
-      })
-      setIsAuthenticated(true);
-      // navigate("/");
-      toast.success("You have successfully logged in!", {
+        name: decode.userName,
+        email: decode.email,
       });
+      Cookies.set('userId' , decode.userId , { expires: 1 });
+      Cookies.set('token' , data.token , { expires: 1 });
+      setIsAuthenticated(true);
+      toast.success("You have successfully logged in!", {});
       setTimeout(() => {
         navigate("/");
       }, 1000);
@@ -51,7 +60,7 @@ const Login = () => {
 
   return (
     <div className="login-container">
-        <ToastContainer/>
+      <ToastContainer />
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email:</label>
@@ -72,7 +81,9 @@ const Login = () => {
           placeholder="Enter your password"
           required
         />
-        <Link to="/register" style={{marginBottom : "2%"}} >register here</Link>
+        <Link to="/register" style={{ marginBottom: "2%" }}>
+          register here
+        </Link>
         {errorMessage && <p className="error-message">{errorMessage}</p>}
         <button type="submit">Login</button>
       </form>
