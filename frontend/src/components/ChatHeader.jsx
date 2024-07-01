@@ -10,7 +10,7 @@ export default function ChatHeader() {
       <div className="exthead">
         <div className="inhead">
           <img src={prf} alt="" width={50} height={50} />
-          <p>{selectedUser.name}</p>
+          <p>{selectedUser.user_name}</p>
         </div>
       </div>
     </>

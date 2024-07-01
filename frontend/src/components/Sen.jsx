@@ -11,7 +11,7 @@ let minutes = date.getMinutes();
     <>
       <div className="sndext">
         <div className="sndint">
-          <div className="sndmsg">{data.message}</div>
+          <div className="sndmsg">{data.data}</div>
           <div className="snddtl">
             <div className="sndtme">{hours }:{ minutes}</div>
             {/* <div className="msgphas">//</div> */}

@@ -11,7 +11,7 @@ import { AuthContext } from "../AuthContext";
 import "../css/Login.css";
 
 const Login = () => {
-  const { setUser, setIsAuthenticated } = useContext(AuthContext);
+  const { setUser, setIsAuthenticated  } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -25,7 +25,7 @@ const Login = () => {
       setErrorMessage("Please enter your email and password.");
       return;
     }
-
+    
     const res = await fetch("http://localhost:3000/login", {
       method: "POST",
       headers: {
@@ -45,6 +45,7 @@ const Login = () => {
       setUser({
         name: decode.userName,
         email: decode.email,
+        userId : decode.userId
       });
       Cookies.set('userId' , decode.userId , { expires: 1 });
       Cookies.set('token' , data.token , { expires: 1 });

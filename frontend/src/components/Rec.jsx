@@ -13,7 +13,7 @@ export default function Rec({ data }) {
           {/* <div className="namerec">
             <strong>Achyut Vardhan</strong>
           </div> */}
-          <div className="recmsg"> {data.message}</div>
+          <div className="recmsg"> {data.data}</div>
           <div className="recdtl">
             <div className="rectme">{hours}:{minutes}</div>
             {/* <div className="msgphase">//</div> */}

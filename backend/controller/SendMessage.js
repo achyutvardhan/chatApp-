@@ -16,7 +16,7 @@ const sendMessage = async(req,res)=>{
             return res.status(404).json({ message: "User not found" });
           }
 
-          const updateMessage = new Message.create({
+          const updateMessage = await Message.create({
              sender_id : sender_id,
              receiver_id: receiver_id,
              data: data,

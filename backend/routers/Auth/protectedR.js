@@ -4,9 +4,10 @@ const {checkTokenExpiration} = require('../../middleware/CheckTokenExpiration');
 const {sendMessage} = require("../../controller/SendMessage")
 const {readMessage} = require("../../controller/readMessage")
 const {editProfile} = require("../../controller/editProfile")
-
-router.post('/send/:id',checkTokenExpiration, sendMessage);
-router.post('/read/:id',checkTokenExpiration ,readMessage);
+const {getAllUser} = require("../../controller/getAllUser")
+router.post('/sendChat/:id',checkTokenExpiration, sendMessage);
+router.post('/getChat/:id',checkTokenExpiration ,readMessage);
 router.post('/updateProfile/:id',checkTokenExpiration ,editProfile);
+router.get('/getallUser/:id',checkTokenExpiration, getAllUser);
 
 module.exports = router;

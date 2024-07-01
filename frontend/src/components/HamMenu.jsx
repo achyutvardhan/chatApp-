@@ -5,7 +5,7 @@ import log from "../assets/logout.gif";
 import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
 import ProfileSetting from "./ProfileSetting";
-
+import Cookies from "js-cookie"
 import { toast } from 'react-toastify'; // import toast
 
 export default function HamMenu() {
@@ -14,6 +14,9 @@ export default function HamMenu() {
     const logoutUser = ()=>{
         setIsAuthenticated(false)
         console.log("logged out" )
+        Cookies.remove('userId')
+        Cookies.remove('token')
+        // remove from backend socket
         setTimeout(() => {
             toast.success("You have successfully logged out!"); // show toast
         }, 1000); // delay of 1 second
