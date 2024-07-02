@@ -2,17 +2,15 @@ import React, { useEffect } from "react";
 import Hamburgerstate from "./Hamburgerstate";
 import "../css/ChatName.css";
 import ChatBox from "./ChatBox";
-import db from "../db.json"
 import Cookies from "js-cookie"
 import { useContext } from "react";
 import { ContactContext } from "../ContactContext";
+import { AuthContext } from "../AuthContext";
 export default function ChatName() {
-  const {users} = db;
   const {setContacts,contacts} = useContext(ContactContext);
-  const token = Cookies.get("token");
-  const userId = Cookies.get("userId");
-  // console.log(token)
-  // console.log(userId)
+  const {user} = useContext(AuthContext);
+  const token = Cookies.get(`token${user.name}`);
+  const userId = Cookies.get(`userId${user.name}`);
   useEffect(()=>{
     const getContacts = async () => {
       

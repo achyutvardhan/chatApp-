@@ -22,7 +22,7 @@ const sendMessage = async(req,res)=>{
              data: data,
           })
           await updateMessage.save();
-          res.status(201).json({ message: `${sender_id} message was sent` });
+          res.status(201).json({ message: `${sender_id} message was sent to ${receiver_id}` });
 
      } catch (error) {
         console.error("Error accessing protected route:", error);

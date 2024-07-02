@@ -47,8 +47,8 @@ const Login = () => {
         email: decode.email,
         userId : decode.userId
       });
-      Cookies.set('userId' , decode.userId , { expires: 1 });
-      Cookies.set('token' , data.token , { expires: 1 });
+      Cookies.set(`userId${decode.userName}` , decode.userId , { expires: 1 });
+      Cookies.set(`token${decode.userName}` , data.token , { expires: 1 });
       setIsAuthenticated(true);
       toast.success("You have successfully logged in!", {});
       setTimeout(() => {

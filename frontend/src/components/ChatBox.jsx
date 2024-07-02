@@ -3,22 +3,22 @@ import prf from "../assets/profile.svg";
 import "../css/Chatbox.css";
 import { CurrentUserContext } from "../CurrentUserContext";
 import Cookies from "js-cookie";
-import db from "../db.json";
+import {AuthContext} from "../AuthContext"
 export default function ChatBox({ data }) {
   const {
     setSelectedUser,
     selectedUser,
     setSelectedUserDetails,
-    selectedUserDetails,
   } = useContext(CurrentUserContext);
   // console.log(data)
-
+  const {user} = useContext(AuthContext)
   const handleSelectedUser = async () => {
+    setSelectedUserDetails([]);
     setSelectedUser(data);
     //local storage check for the perticular user
 
-    const token = Cookies.get("token");
-    const userId = Cookies.get("userId");
+    const token = Cookies.get(`token${user.name}`);
+    const userId = Cookies.get(`userId${user.name}`);
     const getChat = await fetch(
       `http://localhost:3000/auth/getChat/${userId}`,
       {

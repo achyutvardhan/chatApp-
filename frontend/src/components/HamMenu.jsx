@@ -10,12 +10,12 @@ import { toast } from 'react-toastify'; // import toast
 
 export default function HamMenu() {
   const [setting, Setsetting] = useState(false);
-    const {setIsAuthenticated} = useContext(AuthContext);
+    const {user,setIsAuthenticated} = useContext(AuthContext);
     const logoutUser = ()=>{
         setIsAuthenticated(false)
         console.log("logged out" )
-        Cookies.remove('userId')
-        Cookies.remove('token')
+        Cookies.remove(`userId${user.name}`)
+        Cookies.remove(`token${user.name}`)
         // remove from backend socket
         setTimeout(() => {
             toast.success("You have successfully logged out!"); // show toast

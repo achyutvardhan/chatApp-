@@ -1,6 +1,6 @@
 .recext
 {
-    width: 100%;
+    width: 50%;
     height: max-content;
     border: none;
     /* border-radius: 7% 7% 7% 1%; */
@@ -8,13 +8,14 @@
   
 }
 .recint{
+    min-width: 20%;
+    max-width: 50%;
     margin:2% ;
     padding: 1%;
-    width: max-content;
     border: 1px solid var(--chat-color);
     background-color: var(--chat-color);
     border-radius: 7% 7% 7% 1%;
-
+    word-wrap: break-word;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

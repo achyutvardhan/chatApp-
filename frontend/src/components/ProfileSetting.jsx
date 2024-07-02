@@ -22,7 +22,7 @@ export default function ProfileSetting({handle}) {
           <img src={cross} alt="cross" width={20} hright={20} className="crossbut" onClick={handleClick} />
           <div className="profile-pic">
             <img src={prf} alt="profile pic" width={160} height={160} />
-            <strong>{user.name.testuser}</strong>
+            <strong>{user.name}</strong>
             <input type="file" name="" id="" />
           </div>
           <div className="form-div">
@@ -32,7 +32,7 @@ export default function ProfileSetting({handle}) {
                 type="text"
                 name="full-name"
                 id="full-name"
-                placeholder={user.name.testuser}
+                placeholder={user.name}
               />
               {/* <button type="submit">Update</button> */}
               <label htmlFor="">Email</label>
@@ -40,7 +40,7 @@ export default function ProfileSetting({handle}) {
                 type="email"
                 name=""
                 id=""
-                placeholder={user.email.testEmail}
+                placeholder={user.email}
               />
               <label htmlFor="">Password</label>
               <input type="password" name="" id="" />
