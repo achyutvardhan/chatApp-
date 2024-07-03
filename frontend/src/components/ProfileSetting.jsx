@@ -29,7 +29,7 @@ export default function ProfileSetting({handle}) {
       })
       const res = await sendProfileData.json();
       if(sendProfileData.status === 200){
-        console.log("profile updated")
+        // console.log("profile updated")
         toast.success(res.message);
       }else{
         toast.error(res.message);

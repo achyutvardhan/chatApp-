@@ -13,7 +13,7 @@ export default function HamMenu() {
     const {user,setIsAuthenticated} = useContext(AuthContext);
     const logoutUser = ()=>{
         setIsAuthenticated(false)
-        console.log("logged out" )
+        // console.log("logged out" )
         Cookies.remove(`userId${user.name}`)
         Cookies.remove(`token${user.name}`)
         // remove from backend socket
@@ -23,7 +23,7 @@ export default function HamMenu() {
     }
   const profileSetting = () => {
     Setsetting(!setting);
-    console.log("setting");
+    // console.log("setting");
   };
 
 

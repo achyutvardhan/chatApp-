@@ -17,7 +17,7 @@ export default function Hamburgerstate() {
         onToggle={toggled=>{
           if(toggled)
           {
-            console.log(toggled);
+            // console.log(toggled);
             // <HamMenu/>
           }else{
             <div></div>

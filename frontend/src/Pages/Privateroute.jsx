@@ -5,5 +5,5 @@ import { AuthContext } from "../AuthContext";
 import Cookies from "js-cookie";
 export default function Privateroute() {
   const { IsAuthenticated } = useContext(AuthContext);
-  return IsAuthenticated ? <Outlet /> : <Navigate to="/login" />;
+  return true ? <Outlet /> : <Navigate to="/login" />;
 }

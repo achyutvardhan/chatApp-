@@ -30,7 +30,6 @@ const login = async(req,res)=>{
         const confPass = await bcrypt.compare(password , foundUser.password);
         if(!confPass)
         return  res.status(404).json({message : 'Invalid Password'});
-        console.log(result)
 
         const token  =  generateToken(foundUser , userDetails.user_name);
         foundUser.token = token;
