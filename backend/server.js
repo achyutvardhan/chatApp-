@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const socket = require('socket.io');
 app.use(cors({
-  origin:'https://chat-app-two-tau.vercel.app/' ,
+  origin:'https://chat-app-two-tau.vercel.app' ,
   credentials: true, 
 }));
 app.use(express.json())
@@ -41,7 +41,7 @@ const server = app.listen(3000,()=>{
 
  const io = socket(server, {
     cors: {
-      origin: "https://chat-app-two-tau.vercel.app/",
+      origin: "https://chat-app-two-tau.vercel.app",
       credentials: true
     }
   });
