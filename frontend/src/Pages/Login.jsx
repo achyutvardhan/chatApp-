@@ -52,7 +52,7 @@ const Login = () => {
       setIsAuthenticated(true);
       toast.success("You have successfully logged in!", {});
       setTimeout(() => {
-        navigate("/");
+        navigate("/chatroom");
       }, 1000);
     } else {
       toast.error("Invalid email or password.");

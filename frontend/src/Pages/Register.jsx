@@ -45,7 +45,7 @@ export default function Register() {
       if (result.status == 201) {
         toast.success("Successfully registered! Now login...");
         setTimeout(() => {
-          navigate("/login");
+          navigate("/");
         }, 1000);
       } else {
         for(let i=0;i<response.message.length;i++){

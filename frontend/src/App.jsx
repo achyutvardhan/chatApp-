@@ -17,9 +17,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route element={<Privateroute />}>
-              <Route path="/" element={<Chatroom />} exact />
+              <Route path="/chatroom" element={<Chatroom />} exact />
             </Route>
-            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="*" element={<Nopage />} />
           </Routes>
