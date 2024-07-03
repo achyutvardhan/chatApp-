@@ -4,7 +4,10 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const socket = require('socket.io');
-app.use(cors());
+app.use(cors({
+  origin:'https://chat-app-two-tau.vercel.app/' ,
+  credentials: true, 
+}));
 app.use(express.json())
 app.use(cookieParser())
 require('dotenv').config();
@@ -38,7 +41,7 @@ const server = app.listen(3000,()=>{
 
  const io = socket(server, {
     cors: {
-      origin: "http://127.0.0.1:5173",
+      origin: "https://chat-app-two-tau.vercel.app/",
       credentials: true
     }
   });
