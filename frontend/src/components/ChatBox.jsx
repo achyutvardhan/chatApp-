@@ -20,7 +20,7 @@ export default function ChatBox({ data }) {
     const token = Cookies.get(`token${user.name}`);
     const userId = Cookies.get(`userId${user.name}`);
     const getChat = await fetch(
-      `http://localhost:3000/auth/getChat/${userId}`,
+      `https://chatapp-nmqt.onrender.com/auth/getChat/${userId}`,
       {
         method: "POST",
         headers: {

@@ -33,7 +33,7 @@ export default function Message({ socket }) {
         timestamp: date,
       },
     });
-    const send = await fetch(`http://localhost:3000/auth/sendChat/${userId}`, {
+    const send = await fetch(`https://chatapp-nmqt.onrender.com/auth/sendChat/${userId}`, {
       method: "POST",
       headers: {
         Authorization: `${token}`,

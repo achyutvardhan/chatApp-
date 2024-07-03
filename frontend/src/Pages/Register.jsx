@@ -28,7 +28,7 @@ export default function Register() {
       details.password != "" &&
       details.confirm != ""
     ) {
-      const result = await fetch("http://localhost:3000/signup", {
+      const result = await fetch("https://chatapp-nmqt.onrender.com/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

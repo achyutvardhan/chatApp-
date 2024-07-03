@@ -13,7 +13,7 @@ export default function Chatroom() {
   useEffect(()=>{
     console.log("socket connection")
     if(user){
-        socket.current = io("http://localhost:3000", {
+        socket.current = io("https://chatapp-nmqt.onrender.com", {
           withCredentials: true,
         });
         socket.current.on("connect", () => {
