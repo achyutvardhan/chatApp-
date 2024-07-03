@@ -11,11 +11,17 @@ export default function Chatroom() {
   // const currentUser = selectedUser.userId;
   const socket = useRef()
   useEffect(()=>{
+    console.log("socket connection")
     if(user){
-        socket.current = io("http://localhost:3000");
+        socket.current = io("http://localhost:3000", {
+          withCredentials: true,
+        });
+        socket.current.on("connect", () => {
+          console.log("Connected to socket server with ID:", socket.current.id);
+        });
         socket.current.emit("add-user" ,user.userId )
     }
-  },[user])
+  },[])
   return (
     <>
       <div className="ext">

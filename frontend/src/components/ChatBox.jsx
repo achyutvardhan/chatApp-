@@ -33,7 +33,7 @@ export default function ChatBox({ data }) {
       }
     );
     const chatData = await getChat.json();
-    console.log(chatData.message);
+    // console.log(chatData.message);
     setSelectedUserDetails(chatData.message);
   };
   return (

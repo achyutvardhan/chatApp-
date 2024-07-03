@@ -43,18 +43,52 @@ const server = app.listen(3000,()=>{
     }
   });
 
-global.onlineUsers = new Map();
+  global.onlineUsers = new Map();
 
-io.on("connection", (socket) => {
-  console.log(socket.id);
+  io.on("connection", (socket) => {
+    console.log(`New connection: ${socket.id}`);
     global.chatSocket = socket;
+  
+    // Listen for 'add-user' event and map userId to socket.id
     socket.on("add-user", (userId) => {
+      console.log(`Adding user: ${userId} with socket ID: ${socket.id}`);
       onlineUsers.set(userId, socket.id);
+      console.log("Current online users:", Array.from(onlineUsers.entries()));
     });
+  
+    // Listen for 'send-msg' event and forward message to the intended recipient
     socket.on("send-msg", (data) => {
       const sendUserSocket = onlineUsers.get(data.to);
+      // const updateUserScoket  = onlineUsers.get(data.from);
+      console.log(`Sending message to user: ${data.to}, socket ID: ${sendUserSocket}`);
+
       if (sendUserSocket) {
-        io.to(sendUserSocket).emit("msg-recieve", data.message);
+        socket.to(sendUserSocket).emit("msgrecieve", data.message);
+        console.log("Message sent successfully to receiver");
+      } else {
+        console.log(`User with ID: ${data.to} is not online.`);
       }
+      // console.log(`Sending message to user: ${data.from}, socket ID: ${updateUserScoket}`);
+      // if(updateUserScoket){
+      //   socket.to(updateUserScoket).emit("msgrecieve", data.message);
+      //   console.log("Message sent successfully to sender");
+      // } else {
+      //   console.log(`User with ID: ${data.from} is not online.`);
+      // }
+    });
+  
+    // Handle user disconnect
+    socket.on("disconnect", () => {
+      console.log(`User disconnected: ${socket.id}`);
+      // Remove the user from the onlineUsers map if needed
+      for (let [userId, socketId] of onlineUsers.entries()) {
+        if (socketId === socket.id) {
+          onlineUsers.delete(userId);
+          console.log(`Removed user: ${userId} from online users`);
+          break;
+        }
+      }
+      console.log("Current online users after disconnect:", Array.from(onlineUsers.entries()));
     });
   });
+  
