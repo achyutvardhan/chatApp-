@@ -7,6 +7,7 @@ export default function Privateroute() {
   const { IsAuthenticated ,setIsAuthenticated } = useContext(AuthContext);
   const token = Cookies.get("token");
   const userId = Cookies.get("userId");
+  console.log(token , userId);
   if(token&&userId) setIsAuthenticated(true);
   return IsAuthenticated ? <Outlet /> : <Navigate to="/" />;
 }

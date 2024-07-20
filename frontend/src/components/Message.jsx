@@ -72,7 +72,7 @@ export default function Message({ socket }) {
     } else {
       console.log("Socket not connected");
     }
-  }, [socket]);
+  }, []);
 
   useEffect(() => {
     // console.log("called");
