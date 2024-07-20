@@ -7,6 +7,7 @@ import "../css/Message.css";
 import Cookies from "js-cookie";
 import { CurrentUserContext } from "../CurrentUserContext.jsx";
 import { AuthContext } from "../AuthContext";
+import { Socket } from "socket.io-client";
 export default function Message({ socket }) {
   const { selectedUser, selectedUserDetails, setSelectedUserDetails } =
     useContext(CurrentUserContext);
@@ -72,7 +73,7 @@ export default function Message({ socket }) {
     } else {
       console.log("Socket not connected");
     }
-  }, []);
+  }, [socket]);
 
   useEffect(() => {
     // console.log("called");
