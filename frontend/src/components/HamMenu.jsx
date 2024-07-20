@@ -14,8 +14,8 @@ export default function HamMenu() {
     const logoutUser = ()=>{
         setIsAuthenticated(false)
         // console.log("logged out" )
-        Cookies.remove(`userId${user.name}`)
-        Cookies.remove(`token${user.name}`)
+        Cookies.remove(`userId`)
+        Cookies.remove(`token`)
         // remove from backend socket
         setTimeout(() => {
             toast.success("You have successfully logged out!"); // show toast

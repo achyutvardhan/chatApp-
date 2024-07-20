@@ -15,13 +15,13 @@ export default function Message({ socket }) {
   const { user } = useContext(AuthContext);
   const scrollRef = useRef();
   // console.log(selectedUserDetails)
-  const userId = Cookies.get(`userId${user.name}`);
+  const userId = Cookies.get(`userId`);
   const handleSendButton = async (e) => {
     // console.log("clicked");
     e.preventDefault();
     // console.log(selectedUser);
 
-    const token = Cookies.get(`token${user.name}`);
+    const token = Cookies.get(`token`);
     const date = new Date();
     socket.current.emit("send-msg", {
       to: selectedUser.user_id,

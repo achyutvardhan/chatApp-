@@ -9,8 +9,8 @@ import { AuthContext } from "../AuthContext";
 export default function ChatName() {
   const {setContacts,contacts} = useContext(ContactContext);
   const {user} = useContext(AuthContext);
-  const token = Cookies.get(`token${user.name}`);
-  const userId = Cookies.get(`userId${user.name}`);
+  const token = Cookies.get(`token`);
+  const userId = Cookies.get(`userId`);
   useEffect(()=>{
     const getContacts = async () => {
       

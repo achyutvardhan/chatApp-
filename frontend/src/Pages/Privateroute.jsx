@@ -4,6 +4,9 @@ import { useContext } from "react";
 import { AuthContext } from "../AuthContext";
 import Cookies from "js-cookie";
 export default function Privateroute() {
-  const { IsAuthenticated } = useContext(AuthContext);
+  const { IsAuthenticated ,setIsAuthenticated } = useContext(AuthContext);
+  const token = Cookies.get("token");
+  const userId = Cookies.get("userId");
+  if(token&&userId) setIsAuthenticated(true);
   return IsAuthenticated ? <Outlet /> : <Navigate to="/" />;
 }

@@ -17,8 +17,8 @@ export default function ChatBox({ data }) {
     setSelectedUser(data);
     //local storage check for the perticular user
 
-    const token = Cookies.get(`token${user.name}`);
-    const userId = Cookies.get(`userId${user.name}`);
+    const token = Cookies.get(`token`);
+    const userId = Cookies.get(`userId`);
     const getChat = await fetch(
       `https://chatapp-nmqt.onrender.com/auth/getChat/${userId}`,
       {

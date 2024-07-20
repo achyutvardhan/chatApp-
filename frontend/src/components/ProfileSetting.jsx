@@ -17,8 +17,8 @@ export default function ProfileSetting({handle}) {
 
   const SubmitRespo = async(e)=>{
       e.preventDefault();
-      const token = Cookies.get(`token${user.name}`);
-      const userId = Cookies.get(`userId${user.name}`);
+      const token = Cookies.get(`token`);
+      const userId = Cookies.get(`userId`);
       const sendProfileData = await fetch(`https://chatapp-nmqt.onrender.com/auth/updateProfile/${userId}`,{
         method:"POST",
         headers:{
