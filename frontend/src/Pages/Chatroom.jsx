@@ -16,8 +16,8 @@ export default function Chatroom() {
         socket.current = io("https://chatapp-nmqt.onrender.com", {
           withCredentials: true,
         });
-        socket.current.on("connect", () => {
-          console.log("Connected to socket server with ID:", socket.current.id);
+        son("connect", () => {
+          console.log("Connected to soocket.current.cket server with ID:", socket.current.id);
         });
         socket.current.emit("add-user" ,user.userId )
     }
