@@ -17,7 +17,7 @@ export default function Chatroom() {
           withCredentials: true,
         });
         socket.current.on("connect", () => {
-          console.log("Connected to socket server with ID:", socket.current.id);
+          console.log("Connected to soocket.current.cket server with ID:", socket.current.id);
         });
         socket.current.emit("add-user" ,user.userId )
     }
