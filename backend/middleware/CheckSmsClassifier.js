@@ -1,4 +1,5 @@
- const checkSmsClassifier = async (req, res, next) => {
+import fetch from 'node-fetch';
+const checkSmsClassifier = async (req, res, next) => {
     const data = req.body.data;
     try {
         const response = await fetch("http://127.0.0.1:5120/predict", {
