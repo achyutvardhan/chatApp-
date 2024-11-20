@@ -1,4 +1,4 @@
-export const checkSmsClassifier = async (req, res, next) => {
+ const checkSmsClassifier = async (req, res, next) => {
     const data = req.body.data;
     try {
         const response = await fetch("http://127.0.0.1:5120/predict", {
@@ -22,3 +22,5 @@ export const checkSmsClassifier = async (req, res, next) => {
         res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
 };
+
+exports.checkSmsClassifier = checkSmsClassifier;
