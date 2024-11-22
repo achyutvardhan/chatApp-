@@ -128,3 +128,60 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Byte-compiled files
+*.py[cod]
+*.pyo
+__pycache__/
+
+# Virtual environments
+venv/
+.env/
+env/
+*.venv
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log
+*.out
+*.err
+
+# Unit test and coverage results
+.coverage
+*.coverage
+*.cover
+coverage.xml
+nosetests.xml
+test-results/
+
+# Distribution/Packaging
+*.egg
+*.egg-info/
+dist/
+build/
+*.wheel
+
+# IDE and Editor files
+.idea/
+.vscode/
+*.swp
+
+# PyInstaller
+# Usually contains a folder named `build` and an executable file in `dist`
+/dist/
+/build/
+
+# pip cache
+pip-log.txt
+pip-delete-this-directory.txt
+
+# MyPy type checker cache
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
