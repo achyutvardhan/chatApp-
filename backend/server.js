@@ -4,6 +4,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const socket = require("socket.io");
+const checkSmsClassifier = require("./middleware/CheckSmsClassifier");
 app.use(
   cors({
     origin: "https://chat-app-inky-zeta.vercel.app",
@@ -60,26 +61,35 @@ io.on("connection", (socket) => {
   });
 
   // Listen for 'send-msg' event and forward message to the intended recipient
-  socket.on("send-msg", (data) => {
+  socket.on("send-msg", async (data) => {
     const sendUserSocket = onlineUsers.get(data.to);
     // const updateUserScoket  = onlineUsers.get(data.from);
     console.log(
       `Sending message to user: ${data.to}, socket ID: ${sendUserSocket}`
     );
 
-    if (sendUserSocket) {
-      socket.to(sendUserSocket).emit("msgrecieve", data.message);
-      console.log("Message sent successfully to receiver");
-    } else {
-      console.log(`User with ID: ${data.to} is not online.`);
+    try {
+      // Use the middleware to check if the message is spam
+      const isSpam = await checkSmsClassifier(data.message);
+
+      if (isSpam) {
+        console.log("Blocked spam message:", data.message);
+        socket.emit("msg-error", { message: "Spam message detected!" });
+        return; // Stop further execution
+      }
+
+      // If the message is not spam, send it to the intended recipient
+      if (sendUserSocket) {
+        socket.to(sendUserSocket).emit("msgrecieve", data.message);
+        console.log("Message sent successfully to receiver");
+      } else {
+        console.log(`User with ID: ${data.to} is not online.`);
+        socket.emit("msg-error", { message: "Recipient is offline." });
+      }
+    } catch (error) {
+      console.error("Error while processing message:", error);
+      socket.emit("msg-error", { message: "Internal server error." });
     }
-    // console.log(`Sending message to user: ${data.from}, socket ID: ${updateUserScoket}`);
-    // if(updateUserScoket){
-    //   socket.to(updateUserScoket).emit("msgrecieve", data.message);
-    //   console.log("Message sent successfully to sender");
-    // } else {
-    //   console.log(`User with ID: ${data.from} is not online.`);
-    // }
   });
 
   // Handle user disconnect
