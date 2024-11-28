@@ -19,7 +19,7 @@ export default function ProfileSetting({handle}) {
       e.preventDefault();
       const token = Cookies.get(`token`);
       const userId = Cookies.get(`userId`);
-      const sendProfileData = await fetch(`https://chatapp-nmqt.onrender.com/auth/updateProfile/${userId}`,{
+      const sendProfileData = await fetch(`http://localhost:3000/auth/updateProfile/${userId}`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json",

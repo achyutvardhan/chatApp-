@@ -6,7 +6,7 @@ const readMessage = async (req, res) => {
   try {
     const userId = req.params.id;
     const receiverId = req.body.receiverId;
-    const decode = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+    const decode = jwt.verify(token, "secretkey");
     if (decode.userId != userId)
       return res.status(404).json({ message: "Invalid senders id" });
     const user = await User.findById(userId);

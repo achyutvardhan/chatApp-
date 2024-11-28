@@ -5,17 +5,12 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const socket = require("socket.io");
 const checkSmsClassifier = require("./middleware/CheckSmsClassifier");
-app.use(
-  cors({
-    origin: "https://chat-app-inky-zeta.vercel.app",
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 require("dotenv").config();
 
-mongoose.connect(process.env.MONGO_URL);
+mongoose.connect("mongodb://localhost:27017/");
 const db = mongoose.connection;
 db.on("error", (error) => {
   console.error("Error connecting to MongoDB:", error);
@@ -42,7 +37,7 @@ const server = app.listen(3000, () => {
 
 const io = socket(server, {
   cors: {
-    origin: "https://chat-app-inky-zeta.vercel.app",
+    origin: "http://localhost:5173/",
     credentials: true,
   },
 });

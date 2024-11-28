@@ -5,7 +5,7 @@ const checkTokenExpiration = (req, res, next) => {
   const token = req.headers.authorization;
   if (!token) return res.status(404).json({ message: "Invalid Token" });
   try {
-    const decode = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+    const decode = jwt.verify(token, "secretkey");
     if (Date.now() >= decode.exp * 1000) {
       User.findByIdAndDelete(decode.userId, { token: null }, (err) => {
         if (err) {

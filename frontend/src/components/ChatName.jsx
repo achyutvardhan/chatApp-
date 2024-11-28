@@ -14,7 +14,7 @@ export default function ChatName() {
   useEffect(()=>{
     const getContacts = async () => {
       
-      const getContact = await fetch(`https://chatapp-nmqt.onrender.com/auth/getallUser/${userId}`,{
+      const getContact = await fetch(`http://localhost:3000/auth/getallUser/${userId}`,{
         method : 'GET',
         headers : {
           'Authorization' : `${token}`,

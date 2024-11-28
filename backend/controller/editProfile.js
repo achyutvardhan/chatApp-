@@ -12,7 +12,7 @@ const editProfile = async (req, res) => {
     const newPassword = req.body.newPassword;
     const prevPass = req.body.prevPassword;
     const email = req.body .email;
-    const decode = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+    const decode = jwt.verify(token, "secretkey");
     if (decode.userId != user_id)
       return res.status(404).json({ message: "Invalid senders id" });
     const user = await User.findById(decode.userId);

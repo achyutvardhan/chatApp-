@@ -7,7 +7,7 @@ const getAllUser = async(req,res)=>{
     if (!token) return res.status(404).json({ message: "Invalid Token" });
     try {
 
-        const decode = jwt.verify(token, process.env.TOKEN_SECRET_KEY);
+        const decode = jwt.verify(token, "secretkey");
         // console.log(decode)
         const user = await UserDetails.find({user_id: decode.userId});
         // console.log(user)
