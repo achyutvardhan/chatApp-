@@ -14,3 +14,8 @@ export const AuthProvider = ({ children }) => {
     </AuthContext.Provider>
   );
 };
+
+
+
+//parent component
+//childrem
